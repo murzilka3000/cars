@@ -1,0 +1,79 @@
+@import url('/css/all/style.css');
+
+header > :first-child {
+    background: #4354a3;
+    padding: 20px 0;
+}
+
+.header-top {
+    justify-content: space-between;
+}
+
+.header-top-right {
+    gap: 56px;
+}
+
+.header-top-right > div {
+    gap: 15px;
+}
+
+.header-top-right > div > a {
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-top > :first-child p {
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+}
+
+.header-bottom {
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.header-bottom-nav {
+    gap: 33px;
+}
+
+.header-bottom-nav li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: #061766;
+}
+
+.header-bottom-btn {
+    gap: 38px;
+}
+
+.lang {
+    font-weight: 500;
+    font-size: 15px;
+    color: #000;
+    background: #dfdfdf;
+    border: none;
+    padding: 8px 20px;
+}
+
+.active_lang {
+    background: #307ff9;
+    color: #ffff;
+}
+
+.header-bottom-btn-watsapp {
+    gap: 19px;
+    padding: 8px;
+    border: none;
+    background: #307ff9;
+}
+
+.header-bottom-btn-watsapp > span {
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+}
+

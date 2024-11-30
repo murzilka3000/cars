@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Helvetica Neue LT W1 GBd';
+    src: url('/fonts/Helvetica\ Neue\ LT\ W1G\ 55\ Roman.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue LT W1 G Blk';
+    src: url('/fonts/HelveticaNeueLTW1GBlk.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue LT W1 G Italic';
+    src: url('/fonts/HelveticaNeueLTW1GIt.otf') format('opentype');
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue LT W1 G Medium';
+    src: url('/fonts/HelveticaNeueLTW1GMd.otf') format('opentype');
+    font-weight: 500; /* Обычно medium соответствует 500 */
+    font-style: normal;
+}
+
+
+:root {
+	--font-family: "Helvetica Neue LT W1 GBd";
+	--font-family-bold: "Helvetica Neue LT W1 G Blk";
+	--font-family-italic: "Helvetica Neue LT W1 G Italic";
+	--font-family-medium: "Helvetica Neue LT W1 G Medium";
+}
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: var(--font-family-medium);
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+.wrapper {
+    max-width: 1142px;
+    margin: 0 auto;
+}
+
+.flex {
+	display: flex;	
+	align-items: center;
+}
+
+button {
+	cursor: pointer;
+}
+
+.h2{
+    font-weight: 700;
+    font-size: 47px;
+    text-transform: uppercase;
+    color: #061766;
+    margin-bottom: 50px;
+}
+
+.h2-span{
+    color: #307ff9;
+}
