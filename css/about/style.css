@@ -1,0 +1,156 @@
+@import url('/css/all/style.css');
+
+.about-hero {
+    background: url('/img/about-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-hero div h1 {
+    font-weight: 900;
+    font-size: 64px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: var(--font-family-bold);
+}
+
+/* export start */
+
+.export {
+    padding: 130px 0;
+    background: linear-gradient(2deg, #fff 0%, #e5eaf7 100%);
+}
+
+.export_container {
+    display: flex;
+    gap: 28px;
+}
+
+.export_container > :nth-child(1) h5 {
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #307ff9;
+    margin-bottom: 8px;
+}
+
+.export_container > :nth-child(1) p {
+    font-weight: 400;
+    font-size: 20px;
+    color: #000;
+    font-family: var(--font-family);
+}
+
+.margin-about {
+    margin-bottom: 30px;
+}
+
+/* export end */
+
+/* about-services start */
+
+.about-services-container {
+    display: flex;
+    background: url('/img/bg-export.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-services-container > :nth-child(1),
+.about-services-container > :nth-child(2),
+.about-services-container > :nth-child(3) {
+    flex: 1;
+}
+
+.about-services-item-border {
+    border-right: 1px solid #fff;
+}
+
+.about-services-item > :nth-child(1) {
+    margin-bottom: 35px;
+} 
+
+.about-services-item > :nth-child(2) {
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.about-services-item > :nth-child(3) {
+    font-weight: 900;
+    font-size: 20px;
+    background: linear-gradient(180deg, #b1cfff 2.9%, #307ff9 55.83%, #b1cfff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 26px;
+}
+
+.about-services-item > :nth-child(4) {
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    font-family: var(--font-family);
+}
+
+.about-services-item {
+    padding: 132px 24px 38px 20px;
+}
+
+.about-services {
+    padding-bottom: 130px;
+}
+
+/* about-services end */
+
+
+/* advantages start */
+
+.advantages {
+    padding-bottom: 130px;
+}
+
+.advantages-item {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.margin-advantages {
+    margin-bottom: 0!important;
+}
+
+.advantages-item-right {
+    padding: 61px 60px;
+    background: linear-gradient(2deg, #fff 0%, #e5eaf7 100%);
+    flex: 1;
+}
+
+.advantages-item-right h3 {
+    font-weight: 700;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: #307ff9;
+}
+
+.advantages-item-right h4 {
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #061766;
+    margin-bottom: 19px;
+}
+
+.advantages-item-right p {
+    font-weight: 500;
+    font-size: 28px;
+    color: #181818;
+}
+
+/* advantages end */

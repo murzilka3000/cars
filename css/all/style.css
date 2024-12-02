@@ -34,6 +34,10 @@
 	--font-family-medium: "Helvetica Neue LT W1 G Medium";
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 
 
 html, body, div, span, applet, object, iframe,
@@ -107,3 +111,124 @@ button {
 .h2-span{
     color: #307ff9;
 }
+
+
+/* form start */
+
+.form-right-continer h3 {
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #061766;
+    margin-bottom: 49px;
+}
+
+.form-right-continer button {
+    background: #fff;
+    border: 1px solid #307ff9;
+    padding: 7px 15px;
+    gap: 19px;
+}
+
+.btn-submit-about span {
+    font-weight: 500;
+    font-size: 24px;
+    color: #fff;
+}
+
+.form-right-continer {
+    background: url('/img/bgf.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.form-grid div input::placeholder, 
+.form-grid div textarea::placeholder,
+.form-grid div input,
+.form-grid div textarea{
+    font-weight: 400;
+    font-size: 20px;
+    color: #181818a8;
+    /* opacity: 0.6; */
+}
+
+.btn-submit-about {
+    background: #307ff9;
+    gap: 35px;
+    border: none;
+    width: 100%;
+    justify-content: center;
+    padding: 15px;
+}
+
+.form-container > :nth-child(2) {
+    flex: 1;
+}
+
+.form-grid div input, .form-grid div textarea {
+    background: #fff;
+    border: 1px solid #e5eaf7;
+    outline: none;
+    padding: 14px 30px;
+    width: 100%;
+}
+
+.form-grid div textarea {
+    min-height: 156px;
+    resize: none;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+
+.form-grid > :nth-child(5) {
+    grid-column: span 2;
+}
+
+.form-container {
+    display: flex;
+    gap: 19px;
+}
+
+.form-container > :nth-child(1) {
+    flex: 2;
+}
+
+.form-margin-title {
+    margin-bottom: 10px!important;
+}
+
+.about-form-description {
+    font-weight: 400;
+    font-size: 20px;
+    color: #181818;
+    font-family: var(--font-family);
+    margin-bottom: 26px;
+}
+
+.about-form {
+    padding-bottom: 130px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-container form > :nth-child(1) {
+    margin-bottom: 30px;
+}
+
+/* form end */

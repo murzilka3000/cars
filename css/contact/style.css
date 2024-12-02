@@ -1,0 +1,79 @@
+@import url('/css/all/style.css');
+
+/* contact-hero start */
+
+.contact-hero {
+    background: url('/img/contact-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-hero-title {
+    font-weight: 900;
+    font-size: 64px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: var(--font-family-bold);
+}
+
+/* contact-hero end */
+
+/* contacts start */
+
+.contacts {
+    background: linear-gradient(2deg, #fff 0%, #e5eaf7 100%);
+    padding: 130px 0;
+}
+
+.contacts-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.contacts-grid-item {
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.25);
+    background: #fff;
+    padding: 12px 10px 10px 29px;
+}
+
+.contacts-grid-item p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 5px;
+    font-family: var(--font-family);
+}
+
+.contacts-grid-item div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contacts-grid-item div a {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* contacts end */
+
+/* map start */
+
+.map-container {
+    height: 500px;
+}
+
+.map {
+    padding-bottom: 130px;
+}
+
+/* map end */
