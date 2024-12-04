@@ -136,3 +136,96 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+
+ 
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const productsContainer = document.getElementById('products');
+    const paginationContainer = document.getElementById('pagination');
+    const productsPerPage = 18; // Количество карточек на странице
+  
+    // Получаем все карточки продуктов
+    const products = Array.from(productsContainer.children);
+  
+    // Рассчитываем общее количество страниц
+    const totalPages = Math.ceil(products.length / productsPerPage);
+  
+    // Функция для отображения карточек на текущей странице
+    function showPage(page) {
+      // Скрываем все карточки
+      products.forEach((product, index) => {
+        product.style.display = 'none';
+        if (index >= (page - 1) * productsPerPage && index < page * productsPerPage) {
+          product.style.display = '';
+        }
+      });
+  
+      // Обновляем пагинацию
+      updatePagination(page);
+    }
+  
+    // Функция для обновления пагинации
+    function updatePagination(currentPage) {
+      paginationContainer.innerHTML = '';
+  
+      // Кнопка первой страницы
+      const firstPage = document.createElement('div');
+      firstPage.textContent = '1';
+      firstPage.classList.add('page-item');
+      if (currentPage === 1) firstPage.classList.add('active');
+      firstPage.addEventListener('click', () => showPage(1));
+      paginationContainer.appendChild(firstPage);
+  
+      // Кнопка текущей или следующей страницы (если мы не на первой странице)
+      if (currentPage > 1 && currentPage < totalPages) {
+        const currentPageButton = document.createElement('div');
+        currentPageButton.textContent = currentPage;
+        currentPageButton.classList.add('page-item', 'active');
+        paginationContainer.appendChild(currentPageButton);
+      } else if (currentPage === 1 && totalPages > 1) {
+        const secondPageButton = document.createElement('div');
+        secondPageButton.textContent = '2';
+        secondPageButton.classList.add('page-item');
+        secondPageButton.addEventListener('click', () => showPage(2));
+        paginationContainer.appendChild(secondPageButton);
+      }
+  
+      // Троеточие (если текущая страница далеко от последней)
+      if (totalPages > 3 && currentPage < totalPages - 1) {
+        const dots = document.createElement('div');
+        dots.textContent = '...';
+        dots.classList.add('page-item');
+        dots.style.cursor = 'default';
+        paginationContainer.appendChild(dots);
+      }
+  
+      // Кнопка последней страницы (если она не совпадает с текущей)
+      if (totalPages > 1 && currentPage !== totalPages) {
+        const lastPage = document.createElement('div');
+        lastPage.textContent = totalPages;
+        lastPage.classList.add('page-item');
+        if (currentPage === totalPages) lastPage.classList.add('active');
+        lastPage.addEventListener('click', () => showPage(totalPages));
+        paginationContainer.appendChild(lastPage);
+      }
+  
+      // Кнопка "Далее"
+      if (currentPage < totalPages) {
+        const nextButton = document.createElement('div');
+        nextButton.textContent = 'Далее >>';
+        nextButton.classList.add('page-item');
+        nextButton.addEventListener('click', () => showPage(currentPage + 1));
+        paginationContainer.appendChild(nextButton);
+      }
+    }
+  
+    // Инициализация
+    showPage(1);
+  });
+
+  
+  
+
+    

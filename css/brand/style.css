@@ -262,3 +262,36 @@
   }
 
 /* brand-models end */
+
+
+/* plagination start */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.pagination .page-item {
+  padding: 12px 16px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-family: var(--font-family);
+}
+
+.pagination .page-item.active {
+  background-color: #007bff;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  font-family: var(--font-family);
+  border: none;
+
+}
+
+
+/* plagination end */
