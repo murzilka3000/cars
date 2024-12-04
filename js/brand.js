@@ -21,34 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Фильтрация продуктов
 
-  document.getElementById('search-button').addEventListener('click', function () {
-    // Получаем все выбранные фильтры
-    const selectedEnergies = Array.from(document.querySelectorAll('.energy-filter:checked')).map(input => input.value);
-    const selectedBrand = document.getElementById('brands').value;
-    const selectedModel = document.getElementById('models').value;
 
-    // Фильтруем продукты
-    const products = document.querySelectorAll('.product-card');
-    products.forEach(product => {
-      const productEnergy = product.dataset.energy;
-      const productBrand = product.dataset.brand;
-      const productModel = product.dataset.model;
 
-      // Проверяем совпадение фильтров
-      const matchesEnergy = selectedEnergies.length === 0 || selectedEnergies.includes(productEnergy) || selectedEnergies.includes('All Energy');
-      const matchesBrand = selectedBrand === 'All' || selectedBrand === productBrand;
-      const matchesModel = selectedModel === 'All' || selectedModel === productModel;
 
-      // Показываем или скрываем продукт
-      if (matchesEnergy && matchesBrand && matchesModel) {
-        product.style.display = '';
-      } else {
-        product.style.display = 'none';
-      }
-    });
-  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //count energy
 
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -105,6 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+
+
+
+
+
+
+  //custom select
+
   document.addEventListener('DOMContentLoaded', () => {
     const customSelects = document.querySelectorAll('.custom-select');
   
@@ -141,91 +141,140 @@ document.addEventListener('DOMContentLoaded', () => {
  
 
 
+
+
+
+
   document.addEventListener('DOMContentLoaded', () => {
     const productsContainer = document.getElementById('products');
     const paginationContainer = document.getElementById('pagination');
-    const productsPerPage = 18; // Количество карточек на странице
+    const productsPerPage = 18;
   
-    // Получаем все карточки продуктов
-    const products = Array.from(productsContainer.children);
+    const allProducts = Array.from(productsContainer.children);
+    let filteredProducts = [...allProducts];
   
-    // Рассчитываем общее количество страниц
-    const totalPages = Math.ceil(products.length / productsPerPage);
+    // Обновление количества моделей
+    function updateModelCount() {
+      const modelCountElement = document.getElementById('model-count');
+      if (modelCountElement) { // Проверяем, существует ли элемент
+        modelCountElement.textContent = filteredProducts.length; // Устанавливаем количество отфильтрованных карточек
+      }
+    }
   
-    // Функция для отображения карточек на текущей странице
-    function showPage(page) {
-      // Скрываем все карточки
-      products.forEach((product, index) => {
-        product.style.display = 'none';
-        if (index >= (page - 1) * productsPerPage && index < page * productsPerPage) {
-          product.style.display = '';
-        }
+    function setupCustomSelects() {
+      document.querySelectorAll('.custom-select').forEach(select => {
+        const trigger = select.querySelector('.custom-select-trigger');
+        const options = select.querySelectorAll('.custom-option');
+  
+        trigger.addEventListener('click', () => {
+          select.classList.toggle('open');
+        });
+  
+        options.forEach(option => {
+          option.addEventListener('click', () => {
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            trigger.querySelector('span').textContent = option.textContent;
+            select.classList.remove('open');
+          });
+        });
+  
+        document.addEventListener('click', e => {
+          if (!select.contains(e.target)) {
+            select.classList.remove('open');
+          }
+        });
       });
+    }
   
-      // Обновляем пагинацию
+    function getCustomSelectValue(id) {
+      const selectedOption = document.querySelector(`#${id} .custom-option.selected`);
+      return selectedOption ? selectedOption.getAttribute('data-value') : 'All';
+    }
+  
+    function showPage(page) {
+      const start = (page - 1) * productsPerPage;
+      const end = page * productsPerPage;
+      const paginatedProducts = filteredProducts.slice(start, end);
+  
+      allProducts.forEach(product => (product.style.display = 'none'));
+      paginatedProducts.forEach(product => (product.style.display = ''));
+  
       updatePagination(page);
     }
   
-    // Функция для обновления пагинации
     function updatePagination(currentPage) {
       paginationContainer.innerHTML = '';
+      const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   
-      // Кнопка первой страницы
-      const firstPage = document.createElement('div');
-      firstPage.textContent = '1';
-      firstPage.classList.add('page-item');
-      if (currentPage === 1) firstPage.classList.add('active');
-      firstPage.addEventListener('click', () => showPage(1));
-      paginationContainer.appendChild(firstPage);
+      const createPageButton = (page, label = null, active = false) => {
+        const button = document.createElement('div');
+        button.textContent = label || page;
+        button.classList.add('page-item');
+        if (active) button.classList.add('active');
+        button.addEventListener('click', () => showPage(page));
+        return button;
+      };
   
-      // Кнопка текущей или следующей страницы (если мы не на первой странице)
-      if (currentPage > 1 && currentPage < totalPages) {
-        const currentPageButton = document.createElement('div');
-        currentPageButton.textContent = currentPage;
-        currentPageButton.classList.add('page-item', 'active');
-        paginationContainer.appendChild(currentPageButton);
-      } else if (currentPage === 1 && totalPages > 1) {
-        const secondPageButton = document.createElement('div');
-        secondPageButton.textContent = '2';
-        secondPageButton.classList.add('page-item');
-        secondPageButton.addEventListener('click', () => showPage(2));
-        paginationContainer.appendChild(secondPageButton);
-      }
+      paginationContainer.appendChild(createPageButton(1, '1', currentPage === 1));
   
-      // Троеточие (если текущая страница далеко от последней)
-      if (totalPages > 3 && currentPage < totalPages - 1) {
+      if (currentPage > 2) {
         const dots = document.createElement('div');
         dots.textContent = '...';
         dots.classList.add('page-item');
-        dots.style.cursor = 'default';
         paginationContainer.appendChild(dots);
       }
   
-      // Кнопка последней страницы (если она не совпадает с текущей)
-      if (totalPages > 1 && currentPage !== totalPages) {
-        const lastPage = document.createElement('div');
-        lastPage.textContent = totalPages;
-        lastPage.classList.add('page-item');
-        if (currentPage === totalPages) lastPage.classList.add('active');
-        lastPage.addEventListener('click', () => showPage(totalPages));
-        paginationContainer.appendChild(lastPage);
+      if (currentPage > 1 && currentPage < totalPages) {
+        paginationContainer.appendChild(createPageButton(currentPage, currentPage, true));
       }
   
-      // Кнопка "Далее"
+      if (currentPage < totalPages - 1) {
+        const dots = document.createElement('div');
+        dots.textContent = '...';
+        dots.classList.add('page-item');
+        paginationContainer.appendChild(dots);
+      }
+      if (totalPages > 1) {
+        paginationContainer.appendChild(createPageButton(totalPages, totalPages, currentPage === totalPages));
+      }
+  
       if (currentPage < totalPages) {
-        const nextButton = document.createElement('div');
-        nextButton.textContent = 'Далее >>';
-        nextButton.classList.add('page-item');
-        nextButton.addEventListener('click', () => showPage(currentPage + 1));
+        const nextButton = createPageButton(currentPage + 1, 'Далее >>');
         paginationContainer.appendChild(nextButton);
       }
     }
   
-    // Инициализация
+    function filterProducts() {
+      const selectedEnergies = Array.from(document.querySelectorAll('.energy-filter:checked')).map(input => input.value);
+      const selectedBrand = getCustomSelectValue('brands');
+      const selectedModel = getCustomSelectValue('models');
+  
+      filteredProducts = allProducts.filter(product => {
+        const productEnergy = product.dataset.energy;
+        const productBrand = product.dataset.brand;
+        const productModel = product.dataset.model;
+  
+        const matchesEnergy =
+          selectedEnergies.length === 0 ||
+          selectedEnergies.includes(productEnergy) ||
+          selectedEnergies.includes('All Energy');
+        const matchesBrand = selectedBrand === 'All' || selectedBrand === productBrand;
+        const matchesModel = selectedModel === 'All' || selectedModel === productModel;
+  
+        return matchesEnergy && matchesBrand && matchesModel;
+      });
+    }
+  
+    document.getElementById('search-button').addEventListener('click', () => {
+      filterProducts();
+      updateModelCount();
+      showPage(1);
+    });
+  
+    setupCustomSelects();
+    filterProducts();
+    updateModelCount();
     showPage(1);
   });
 
-  
-  
-
-    
