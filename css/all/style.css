@@ -112,6 +112,19 @@ button {
     color: #307ff9;
 }
 
+@media screen and (max-width: 948px) {
+    .h2{
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .h2{
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+}
+
 
 /* form start */
 
