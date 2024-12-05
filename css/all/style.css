@@ -231,7 +231,7 @@ button {
 }
 
 .about-form {
-    padding-bottom: 130px;
+    padding:  0 30px 130px 30px;
 }
 
 .form-container form {
@@ -245,3 +245,57 @@ button {
 }
 
 /* form end */
+
+
+@media screen and (max-width: 948px) {
+    .about-form {
+        padding:  0 30px 110px 30px;
+    }
+
+    .form-right-continer h3  {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .form-grid div input::placeholder, 
+    .form-grid div textarea::placeholder, 
+    .form-grid div input, 
+    .form-grid div textarea {
+        font-size: 12px;
+    }
+
+    .form-container form > :nth-child(1) {
+        margin-bottom: 10px;
+    }
+
+    .form-grid {
+        gap: 10px;
+    }
+
+    .form-grid div textarea {
+        min-height: 106px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .about-form {
+        padding:  0 20px 50px 20px;
+    }
+
+    .form-container {
+        flex-direction: column;
+    }
+
+    .form-right-continer {
+        padding: 40px 0;
+    }
+
+    .form-grid  {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-grid div input {
+        display: block;
+    }
+}

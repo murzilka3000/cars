@@ -22,7 +22,7 @@
 /* export start */
 
 .export {
-    padding: 130px 0;
+    padding: 130px 30px;
     background: linear-gradient(2deg, #fff 0%, #e5eaf7 100%);
 }
 
@@ -105,7 +105,7 @@
 }
 
 .about-services {
-    padding-bottom: 130px;
+    padding:  0 30px 130px 30px;
 }
 
 /* about-services end */
@@ -114,7 +114,7 @@
 /* advantages start */
 
 .advantages {
-    padding-bottom: 130px;
+    padding:  0 30px 130px 30px;
 }
 
 .advantages-item {
@@ -153,4 +153,159 @@
     color: #181818;
 }
 
+.export_container > :first-child,
+.export_container > :last-child{
+    flex: 1;
+}
+
+.export_container > :last-child img {
+    width: 100%;
+}
+
 /* advantages end */
+
+@media screen and (max-width: 948px) {
+    .export {
+        padding: 110px 30px;
+    }
+
+    .export_container h2 {
+        margin-bottom: 26px!important;
+    }
+
+    .advantages-item img {
+        width: 100%;
+    }
+
+    .advantages-item-right {
+        padding: 24px 0 44px 40px;
+    }
+
+    .advantages-item > :first-child,
+    .advantages-item > :last-child {
+        flex: 1;
+    }
+
+    .advantages-item-right h3 {
+        font-size: 28px;
+    }
+
+    .advantages-item-right p,
+    .advantages-item-right h4  {
+        font-size: 20px;
+    }
+ 
+    .export_container > :nth-child(1) p {
+        font-size: 14px;
+    }
+
+    .export_container > :nth-child(1) h5  {
+        font-size: 16px;
+    }
+
+    .about-services {
+        padding:  0 30px 110px 30px;
+    }
+
+    .advantages {
+        padding:  0 30px 110px 30px;
+    }
+
+    .about-hero div h1 {
+        font-size: 48px;
+      }
+      
+      .about-hero {
+        min-height: 260px;
+      }
+
+      .about-services-item > :nth-child(2),
+      .about-services-item > :nth-child(3)  {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .about-services-item > :nth-child(1) {
+        margin-bottom: 20px;
+        margin-bottom: 5px;
+      }
+
+      .about-services-item > :nth-child(4)  {
+        font-size: 12px;
+      }
+}
+
+@media screen and (max-width: 767px) {
+    .export {
+        padding: 50px 20px;
+    }
+
+    .advantages-item {
+        flex-direction: column;
+    }
+
+    .advantages-item-right h3 {
+        font-size: 24px;
+    }
+
+    .advantages-item-right {
+        padding: 31px 0 53px 20px;
+    }
+
+    .advantages-item-right h4 {
+        font-size: 18px;
+    }
+
+    .advantages-item-right p {
+        font-size: 16px;
+    }
+
+    .advantages .wrapper > :nth-child(3),
+    .advantages .wrapper > :nth-child(5){
+        flex-direction: column-reverse;
+    }
+
+    .about-hero {
+        min-height: 164px;
+      }
+      
+      
+      .about-hero div h1 {
+        font-size: 28px;
+      }
+
+    .about-services {
+        padding:  0 20px 50px 20px;
+    }
+
+    .advantages {
+        padding:  0 20px 50px 20px;
+    }
+
+    .export_container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 684px) {
+    .about-services-container {
+        flex-direction: column;
+        background: url(/img/bg-export.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .about-services-item {
+        padding: 32px 40px 20px 20px;
+    }
+
+    .about-services-item > :nth-child(4) {
+        max-width: 350px;
+    }
+
+    .about-services-item-border {
+        border-right: none;
+        border-bottom: 1px solid #fff;
+    }
+}

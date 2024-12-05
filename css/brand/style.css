@@ -27,13 +27,8 @@
 /* brand-brands start */
 
 .brand-brands {
-    padding-bottom: 130px;
+    padding: 130px 30px 130px 30px;
 }
-
-.brand-brands {
-    padding-top: 130px;
-}
-
 
 /* Контейнер слайдера */
 .logo-slider {
@@ -85,7 +80,7 @@
 /* brand-models start */
 
 .brand-models {
-    padding-bottom: 130px;
+    padding: 0 30px 130px 30px;
 }
 
   /* Основной контейнер */
@@ -295,3 +290,65 @@
 
 
 /* plagination end */
+
+@media screen and (max-width: 948px) {
+  .brand-brands {
+    padding: 110px 30px 110px 30px;
+  } 
+
+  .brand-models {
+    padding: 0 30px 110px 30px;
+}
+
+.brand-hero h1 {
+  font-size: 48px;
+}
+
+.brand-hero {
+  min-height: 260px;
+}
+}
+
+
+@media screen and (max-width: 767px) {
+  .brand-brands {
+    padding: 50px 20px 50px 20px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none!important;
+}
+
+.brand-hero {
+  min-height: 164px;
+}
+
+
+.brand-hero h1 {
+  font-size: 28px;
+}
+
+.filters-mob {
+  display: flex!important;
+  justify-content: flex-end;
+}
+
+
+  .brand-models {
+    padding: 0 20px 50px 20px;
+  }
+
+  .filters {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+  }
+}
+

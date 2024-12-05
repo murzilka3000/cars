@@ -1,25 +1,41 @@
-//слфйдер
+//слайдер
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Инициализация Swiper
-    const logoSwiper = new Swiper('.logo-swiper', {
-      slidesPerView: 8, // Видно 5 слайдов в каждой строке
-      grid: {
-        rows: 2, // Две строки логотипов
-        fill: 'row', // Заполняем по строкам
+  // Инициализация Swiper
+  const logoSwiper = new Swiper('.logo-swiper', {
+    slidesPerView: 8, // Количество видимых слайдов
+    grid: {
+      rows: 2, // По умолчанию 2 строки
+      fill: 'row', // Заполняем по строкам
+    },
+    spaceBetween: 20, // Отступы между слайдами
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true, // Зацикливание слайдов
+    autoplay: {
+      delay: 3000, // Автопрокрутка каждые 3 секунды
+      disableOnInteraction: false, // Продолжать автопрокрутку после взаимодействия
+    },
+    breakpoints: {
+      600: {
+        slidesPerView: 5, // Уменьшаем количество видимых слайдов
+        grid: {
+          rows: 2, // На мобильных устройствах 3 строки
+        },
+        spaceBetween: 15, // Уменьшаем отступы
       },
-      spaceBetween: 20, // Отступы между слайдами
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+      0: {
+        slidesPerView: 3, // Ещё меньше видимых слайдов
+        grid: {
+          rows: 3, // 3 строки для маленьких экранов
+        },
+        spaceBetween: 10, // Ещё меньше отступы
       },
-      loop: true, // Зацикливание слайдов
-      autoplay: {
-        delay: 3000, // Автопрокрутка каждые 3 секунды
-        disableOnInteraction: false, // Продолжать автопрокрутку после взаимодействия
-      },
-    });
+    },
   });
+});
 
 
 
