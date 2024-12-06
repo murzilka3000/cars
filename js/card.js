@@ -36,3 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 4, // Количество видимых слайдов
     spaceBetween: 20, // Отступы между слайдами
   });
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const galleryTop = document.querySelector('.gallery-top');
+    const galleryThumbs = document.querySelector('.gallery-thumbs');
+  
+    function updateThumbsHeight() {
+      if (galleryTop && galleryThumbs) {
+        const galleryTopHeight = galleryTop.offsetHeight; // Получаем текущую высоту .gallery-top
+        galleryThumbs.style.maxHeight = `${galleryTopHeight}px`; // Устанавливаем ту же высоту для .gallery-thumbs
+      }
+    }
+  
+    // Первоначальная установка
+    updateThumbsHeight();
+  
+    // Обновляем при изменении размера окна
+    window.addEventListener('resize', updateThumbsHeight);
+  });

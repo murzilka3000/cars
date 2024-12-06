@@ -34,8 +34,7 @@
 /* faq start */
 
 .faq {
-    padding-top: 130px;
-    padding-bottom: 130px;
+    padding: 130px 30px;
 }
   
 .accordion-item {
@@ -139,3 +138,68 @@
 }
 
 /* faq end */
+
+@media screen and (max-width: 948px) {
+    .faq-hero h1 {
+        font-size: 48px;
+    }
+    .faq-hero h3 {
+        font-size: 24px;
+    }
+
+    .faq-hero {
+        min-height: 260px;
+    }
+
+    .faq {
+        padding: 110px 30px;
+    }
+
+    .accordion-header span {
+        font-size: 14px;
+    }
+
+    .accordion-content p {
+        font-size: 12px;
+    }
+
+    .accordion-content p {
+        padding: 20px;
+        margin: 0;
+    }
+
+
+    .right-bar div h3 {
+        font-size: 28px;
+    }
+
+    .icon {
+        font-size: 40px!important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .faq-hero h1 {
+        font-size: 28px;
+    }
+
+    .faq-hero h3 {
+        font-size: 16px;
+    }
+
+    .right-bar div {
+        min-height: 179px;
+    }
+
+    .faq {
+        padding: 50px 20px;
+    }
+
+    .faq-hero {
+        min-height: 164px;
+    }
+
+    .faq_container{
+        flex-direction: column;
+    }
+}
